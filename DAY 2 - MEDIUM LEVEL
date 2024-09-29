@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+    int T; 
+    cin >> T;
+    
+    while (T--) {
+        int dragonDSA, dragonTOC, dragonDM;
+        int slothDSA, slothTOC, slothDM;
+        
+        
+        cin >> dragonDSA >> dragonTOC >> dragonDM;
+        cin >> slothDSA >> slothTOC >> slothDM;
+        
+        int dragonTotal = dragonDSA + dragonTOC + dragonDM;
+        int slothTotal = slothDSA + slothTOC + slothDM;
+        
+        if (dragonTotal > slothTotal) {
+            cout << "Dragon" << endl;
+        } else if (slothTotal > dragonTotal) {
+            cout << "Sloth" << endl;
+        } else {
+            if (dragonDSA > slothDSA) {
+                cout << "Dragon" << endl;
+            } else if (slothDSA > dragonDSA) {
+                cout << "Sloth" << endl;
+            } else {
+                if (dragonTOC > slothTOC) {
+                    cout << "Dragon" << endl;
+                } else if (slothTOC > dragonTOC) {
+                    cout << "Sloth" << endl;
+                } else {
+                    // If everything is tied
+                    cout << "Tie" << endl;
+                }
+            }
+        }
+    }
+    
+    return 0;
+}
+
+
