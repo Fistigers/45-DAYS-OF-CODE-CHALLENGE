@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	 int T; // Number of test cases
+    cin >> T;
+
+    while (T--) {
+        int X; // Time when Janmansh starts doing the assignments
+        cin >> X;
+
+        // Each assignment takes 1 hour, and he has to finish 3 assignments.
+        // The deadline is 10 PM (i.e., 22:00 in 24-hour format).
+        if (X + 3 <= 22) {
+            cout << "Yes" << endl;
+        } else {
+            cout << "No" << endl;
+        }
+    }
+
+    return 0;
+}
