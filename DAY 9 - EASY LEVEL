@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+int T;
+    cin >> T;
+    
+    while (T--) {
+        int N, X;
+        cin >> N >> X;
+        
+       
+        int flips = min(X, N - X);
+        
+
+        cout << flips << endl;
+    }
+    
+    return 0;
+}
