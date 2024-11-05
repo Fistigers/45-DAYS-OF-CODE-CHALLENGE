@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+ int T;
+    cin >> T; 
+
+    while (T--) {
+        int A, B;
+        cin >> A >> B; 
+
+        int needed = 21 - (A + B); 
+
+        if (needed >= 1 && needed <= 10) {
+            cout << needed << endl;
+        } else {
+            cout << -1 << endl;
+        }
+    }
+    return 0;
+}
