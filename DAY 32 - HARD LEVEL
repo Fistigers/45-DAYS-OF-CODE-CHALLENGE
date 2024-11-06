@@ -1,0 +1,56 @@
+class Solution {
+public:
+
+int countLiveNeighbors(vector<vector<int>>& board, int row, int col, int m, int n) {
+    int liveNeighbors = 0;
+    vector<pair<int, int>> directions = {{-1, -1}, {-1, 0}, {-1, 1},
+                                         {0, -1},           {0, 1},
+                                         {1, -1}, {1, 0}, {1, 1}};
+    
+    for (auto dir : directions) {
+        int newRow = row + dir.first;
+        int newCol = col + dir.second;
+        if (newRow >= 0 && newRow < m && newCol >= 0 && newCol < n && abs(board[newRow][newCol]) == 1) {
+            liveNeighbors++;
+        }
+    }
+    return liveNeighbors;
+}
+    void gameOfLife(vector<vector<int>>& board) {
+         int m = board.size();
+    int n = board[0].size();
+    
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            int liveNeighbors = countLiveNeighbors(board, i, j, m, n);
+
+            if (board[i][j] == 1 && (liveNeighbors < 2 || liveNeighbors > 3)) {
+                board[i][j] = -1; 
+            }
+            if (board[i][j] == 0 && liveNeighbors == 3) {
+                board[i][j] = 2; 
+            }
+        }
+    }
+
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (board[i][j] > 0) {
+                board[i][j] = 1; 
+            } else {
+                board[i][j] = 0; 
+            }
+        }
+    }
+}
+
+
+void printBoard(vector<vector<int>>& board) {
+    for (auto row : board) {
+        for (auto cell : row) {
+            cout << cell << " ";
+        }
+        cout << endl;
+    }
+}
+};
