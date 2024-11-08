@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+int t;
+    std::cin >> t;
+
+    while (t--) {
+        int n, sum = 0, positives = 0, negatives = 0;
+
+        std::cin >> n;
+        for (int i = 0; i < n; i++) {
+            int num;
+            std::cin >> num;
+            sum += num;
+            if (num > 0) positives++;
+            else negatives++;
+        }
+
+        if (sum % 2 || abs(sum) > n) std::cout << -1 << std::endl;
+        else std::cout << abs(sum) / 2 << std::endl;
+    }
+
+   return 0;
+
+}
