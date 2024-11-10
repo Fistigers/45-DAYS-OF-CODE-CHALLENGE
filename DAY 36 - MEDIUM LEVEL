@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+int t;
+    cin >> t;
+
+    while (t--) {
+        int n, x;
+        cin >> n >> x;
+
+        vector<int> enemies(n);
+        for (int i = 0; i < n; i++) {
+            cin >> enemies[i];
+        }
+
+        sort(enemies.rbegin(), enemies.rend());
+
+        int singleTargetTime = 0;
+        for (int enemy : enemies) {
+            singleTargetTime += (enemy + x - 1) / x; 
+        }
+
+        int multiTargetTime = 0;
+        for (int enemy : enemies) {
+            multiTargetTime = max(multiTargetTime, enemy);
+        }
+
+        cout << min(singleTargetTime, multiTargetTime) << endl;
+    }
+
+    return 0;
+
+}
