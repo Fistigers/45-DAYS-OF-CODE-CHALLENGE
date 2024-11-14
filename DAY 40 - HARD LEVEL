@@ -1,0 +1,26 @@
+class Solution {
+public:
+    string decodeMessage(string key, string message) {
+         unordered_map<char, char> substitutionTable;
+    char alphabet = 'a';
+
+    for (char ch : key) {
+        if (ch != ' ' && substitutionTable.find(ch) == substitutionTable.end()) {
+            substitutionTable[ch] = alphabet;
+            alphabet++;
+            if (alphabet > 'z') break; 
+        }
+    }
+
+    string decodedMessage;
+    for (char ch : message) {
+        if (ch == ' ') {
+            decodedMessage += ' ';
+        } else {
+            decodedMessage += substitutionTable[ch];
+        }
+    }
+
+    return decodedMessage;
+    }
+};
