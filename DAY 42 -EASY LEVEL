@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+      int T;
+    cin >> T; 
+    
+    while (T--) {
+        int N;
+        cin >> N; 
+        
+        int fullGroups = N / 5;         
+        int remainingGifts = N % 5;    
+        int coinsRequired = (fullGroups * 4) + remainingGifts;
+        
+        cout << coinsRequired << endl; 
+    }
+    
+    return 0;
+}
