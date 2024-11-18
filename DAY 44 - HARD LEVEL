@@ -1,0 +1,20 @@
+class Solution {
+public:
+
+int manhattanDistance(int x1, int y1, int x2, int y2) {
+    return abs(x1 - x2) + abs(y1 - y2);
+}
+
+    bool escapeGhosts(vector<vector<int>>& ghosts, vector<int>& target) {
+        int pacmanDistance = manhattanDistance(0, 0, target[0], target[1]);
+    
+    for (const auto& ghost : ghosts) {
+        int ghostDistance = manhattanDistance(ghost[0], ghost[1], target[0], target[1]);
+        if (ghostDistance <= pacmanDistance) {
+            return false;
+        }
+    }
+    
+    return true;
+    }
+};
